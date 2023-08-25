@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+    <script src="script.js"></script>
+    <div class="items" id="finishitem">
+        <div class="topitem">
+            <h1 id="gameheader"></h1>
+        </div>
+        <div class="gameitem">
+            <div class="playeritem">
+                <h1 class="playerheader">Player</h1>
+                <div class="playertrack">
+                    <div class="player_main_logo">
+                        <img class="logo_img" src="./Images/pl log.jpg">
+                    </div>
+                    <div class="playelevel">
+                        <p class="level" id="playerlevel">You have Score: 0</p>
+                    </div>
+                </div>
+                <div class="selectgames">
+                    <div class="selectgame" id="rock_div">
+                        <p class="selectgametext" id="select_rock">
+                          Rock
+                      </p>
+                        <img class="choices" id ="rock_img" src="./Images/Rock.jpg">
+                    </div>
+                    <div class="selectgame" id="paper_div">
+                        <p class="selectgametext" id="select_paper">
+                          Paper
+                        </p>
+                        <img class="choices" id="paper_img" src="./Images/Paper.jpg">
+                    </div>
+                    <div class="selectgame" id="scissors_div">
+                        <p class="selectgametext" id="select_scissors">
+                          Scissors
+                        </p>
+                        <img class="choices" id="scissors_img" src="./Images/Scissor.png">
+                    </div>
+                </div>
+            </div>
+            <div class="playeritem">
+                <h1 class="playerheader">Machine</h1>
+                <div class="playertrack">
+                    <div class="player_main_logo">
+                        <img class="logo_img" src="./Images/pl log.jpg">
+                    </div>
+                    <div class="playerlevel">
+                        <p class="level" id="machinescore">Your have Score: 0</p>
+                    </div>
+                </div>
+                <div class="selectgames">
+                    <div class="selectgame" id="rock_div_for_machine">
+                        <p class="selectgametext">
+                            Rock
+                        </p>
+                        <img class="choices" src="./Images/Rock.jpg">
+                    </div>
+                    <div class="selectgame" id="paper_div_for_machine">
+                        <p class="selectgametext">Paper</p>
+                        <img class="choices" src="./Images/Paper.jpg">
+                    </div>
+                    <div class="selectgame" id="scissors_div_for_machine">
+                        <p class="choices">Scissors</p>
+                        <img class="choices" src="./Images/Scissor.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomitem" id="bottomitem">
+            <div class="winner_logo_div">
+                <img class="winner_logo" id="user_wins_logo" src="./Images/winner log.jpg">
+                <img class="winner_logo" id="machine_wins_logo" src="./Images/pl log.jpg">
+            </div>
+            <p class="gamestarts"></p>
+            <button>
+            <a href="index.html" id="finishbutton">Do yoou wish to play again! <br> amazing start A game?</a>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
