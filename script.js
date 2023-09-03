@@ -3,7 +3,7 @@ let txt = 'Rock, Paper, Scissors?';
 let speed = 50;
 
 function typeWriter() {
-    if (i < txt.length) {
+    if (r < txt.length) {
         document.getElementById("gameheader").innerHTML += txt.charAt(r);
         r++;
         setTimeout(typeWriter, speed);
@@ -13,17 +13,22 @@ function typeWriter() {
 function playSound() {
     const buttonPress = document.querySelector("#startplays");
     buttonPress.play();
-}
-mainButton = document.querySelector("#start").addEventListener("click", playSound);
 
-function playWinSound() {
-    const winSound = document.getElementById("youwin");
-    winSound.play();
 }
-function playLoseSound() {
-    const loseSound = document.getElementById("youfail");
-    loseSound.play();
+function playStartSound() {
+    const startSound = document.getElementById("startplays");
+    startSound.play();
 }
+
+function playYouWinSound() {
+    const startSound = document.getElementById("youwin");
+    startSound.play();
+}
+function playFailSound() {
+    const startSound = document.getElementById("youfail");
+    startSound.play();
+}
+
 let startItem = document.getElementById('startitem');
 let btn = document.querySelector("#start");
 
@@ -32,11 +37,14 @@ btn.addEventListener('click', function(){
     startItem.style.transform = 'scale(0)';
     window.setTimeout(function(){
         startItem.style.display = 'none';
-    },700); 
+    }, 700); 
     setTimeout(() => {  typeWriter(); }, 1000);
-    gameButtons = document.querySelectorAll(".selectgame").forEach(item => {
+    const gameButtons = document.querySelectorAll(".selectgame");
+    gameButtons.forEach(item => {
         item.addEventListener("click", playSound);
-    })
+    
+    });
+    playStartSound();
 });
 
 function hideEndContainerShowWinner() {
@@ -48,22 +56,8 @@ function hideEndContainerShowWinner() {
     bottomItem.style.display = 'block';
 }
 
-btn.addEventListener('click', function(){
-    startItem.style.opacity = 0;
-    startItem.style.transform = 'scale(0)';
-     window.setTimeout(function(){
-        startItem.style.display = 'none';
-    },700); 
-    setTimeout(() => {  typeWriter(); }, 1000);
-    gameButtons = document.querySelectorAll(".selectgame").forEach(item => {
-        item.addEventListener("click", playSound);
-    })
-});
-
-
 let playerLevel = 0;
-let computerLevel = 0;
-let gamesPlayed = 0;
+let machineLevel = 0;
 
 document.addEventListener("click", gameSelectionListener);
 function gameSelectionListener(event) {
@@ -72,51 +66,50 @@ function gameSelectionListener(event) {
     let rock = "rock";
     let paper = "paper";
     let scissors = "scissors";
-    if (element.classList.contains("selectgame") && element.id === ("rock_div")) {
+    if (element.classList.contains("selectgame") && element.id === "rock_div") {
         playRound(rock);
-        console.log("submitted rock")
+        console.log("submitted rock");
     }
-    else if (element.classList.contains("choices") && element.id === ("rock_img")) {
+    else if (element.classList.contains("choices") && element.id === "rock_img") {
         playRound(rock);
-        console.log("submitted rock")
+        console.log("submitted rock");
     }
-    else if (element.classList.contains("selectgametext") && element.id === ("select_rock")) {
+    else if (element.classList.contains("selectgametext") && element.id === "select_rock") {
         playRound(rock);
-        console.log("submitted rock")
+        console.log("submitted rock");
     }
-    else if (element.classList.contains("selectgame") && element.id === ("paper_div")) {
+    else if (element.classList.contains("selectgame") && element.id === "paper_div") {
         playRound(paper);
-        console.log("submitted paper")
+        console.log("submitted paper");
     }
-    else if (element.classList.contains("choices") && element.id === ("paper_img")) {
+    else if (element.classList.contains("choices") && element.id === "paper_img") {
         playRound(paper);
-        console.log("submitted paper")
+        console.log("submitted paper");
     }
-    else if (element.classList.contains("selectgametext") && element.id === ("select_paper")) {
+    else if (element.classList.contains("selectgametext") && element.id === "select_paper") {
         playRound(paper);
-        console.log("submitted paper")
+        console.log("submitted paper");
     }
-    else if (element.classList.contains("selectgame") && element.id === ("scissors_div")) {
+    else if (element.classList.contains("selectgame") && element.id === "scissors_div") {
         playRound(scissors);
-        console.log("submitted scissors")
+        console.log("submitted scissors");
     }
-    else if (element.classList.contains("choices") && element.id === ("scissors_img")) {
+    else if (element.classList.contains("choices") && element.id === "scissors_img") {
         playRound(scissors);
-        console.log("submitted scissors")
+        console.log("submitted scissors");
     }
-    else if (element.classList.contains("selectgametext") && element.id === ("select_scissors")) {
+    else if (element.classList.contains("selectgametext") && element.id === "select_scissors") {
         playRound(scissors);
-        console.log("submitted scissors")
+        console.log("submitted scissors");
     }
 }
 
-
 function machinePlay() {
     randomGameValue = Math.floor(Math.random() * 3);
-    if (randomGameValue == "0") {
+    if (randomGameValue === 0) {
         return "rock";
     }
-    else if (randomGameValue == "1") {
+    else if (randomGameValue === 1) {
         return "paper";
     }
     else {
@@ -133,17 +126,17 @@ function playRound(playerSelection) {
     const machineRockSelected = document.querySelector("#rock_div_for_machine");
     const machinePaperSelected = document.querySelector("#paper_div_for_machine");
     const machineScissorsSelected = document.querySelector("#scissors_div_for_machine");
-    if (machineSelection == "rock") {
+    if (machineSelection === "rock") {
         machineRockSelected.style.backgroundColor = "#7987e9";
         machinePaperSelected.style.backgroundColor = "white";
         machineScissorsSelected.style.backgroundColor = "white";
     }
-    else if (machineSelection == "paper") {
+    else if (machineSelection === "paper") {
         machinePaperSelected.style.backgroundColor = "#7987e9";
         machineRockSelected.style.backgroundColor = "white";
         machineScissorsSelected.style.backgroundColor = "white";
     }
-    else if (machineSelection == "scissors") {
+    else if (machineSelection === "scissors") {
         machineScissorsSelected.style.backgroundColor = "#7987e9";
         machineRockSelected.style.backgroundColor = "white";
         machinePaperSelected.style.backgroundColor = "white";
@@ -167,14 +160,14 @@ function playRound(playerSelection) {
             console.log("You lose - paper beats rock!");
             machineLevel++;
             const currentMachineLevel = document.querySelector("#machinescore").innerHTML = `Your have Score: ${machineLevel}`;
-            game(playerLevel, computerLevel);
+            game(playerLevel, machineLevel);
             return "lose";
         }
         else {
-            console.log ("You win - scissors beats paper!");
+            console.log("You win - scissors beats paper!");
             playerLevel++;
             const currentPlayerLevel = document.querySelector("#playerlevel").innerHTML = `Your have Score: ${playerLevel}`;
-            game(playerLevel, computerLevel);
+            game(playerLevel, machineLevel);
             return "win";
         }
     }
@@ -185,7 +178,7 @@ function playRound(playerSelection) {
         if (machineSelection === "rock") {
             console.log("You win - paper beats rock!");
             playerLevel++;
-            const currentPlayerLevel = document.querySelector("#playerlevel").innerHTML = `Your have Score: ${playerScore}`;
+            const currentPlayerLevel = document.querySelector("#playerlevel").innerHTML = `Your have Score: ${playerLevel}`;
             game(playerLevel, machineLevel);
             return "win";
         }
@@ -199,9 +192,9 @@ function playRound(playerSelection) {
             return "draw";
         }
         else {
-            console.log("You lose - scissors beats paper!")
+            console.log("You lose - scissors beats paper!");
             machineLevel++;
-            const currentMachineLevel = document.querySelector("machinescore").innerHTML = `Your have Score: ${machineLevel}`;
+            const currentMachineLevel = document.querySelector("#machinescore").innerHTML = `Your have Score: ${machineLevel}`;
             game(playerLevel, machineLevel);
             return "lose";
         }
@@ -228,7 +221,7 @@ function playRound(playerSelection) {
             console.log("Draw!");
             playerLevel++;
             machineLevel++;
-            const currentPlayerLevel = document.querySelector("#playelevel").innerHTML = `Your have Score: ${playerLevel}`;
+            const currentPlayerLevel = document.querySelector("#playerlevel").innerHTML = `Your have Score: ${playerLevel}`;
             const currentMachineLevel = document.querySelector("#machinescore").innerHTML = `Your have Score: ${machineLevel}`;
             game(playerLevel, machineLevel);
             return "draw";
@@ -238,14 +231,16 @@ function playRound(playerSelection) {
         console.log("Invalid entry, please try again.");
         game(playerLevel, machineLevel);
         return null;
-    }
+    }       
+
 }
+
 
 function game(playerLevel, machineLevel) {
     const gameStarts = document.querySelector(".gamestarts");
     let userWinLogo = document.getElementById('user_wins_logo');
     let machineWinLogo = document.getElementById('machine_wins_logo');
-    if (playerLevel == 5 || machineLevel == 5) {
+    if (playerLevel === 5 || machineLevel === 5) {
         if (playerLevel > machineLevel) {
             let text = document.createTextNode(`YOU WIN THE GAME ${playerLevel}:${machineLevel}!`);
             gameStarts.appendChild(text);
@@ -254,7 +249,7 @@ function game(playerLevel, machineLevel) {
             userWinLogo.style.display = 'block';
         }
         else if (machineLevel > playerLevel) {
-            let text = document.createTextNode(`MACHINE WINS ${computrLevel}:${playerLevel}!`);
+            let text = document.createTextNode(`MACHINE WINS ${machineLevel}:${playerLevel}!`);
             gameStarts.appendChild(text);
             hideEndContainerShowWinner();
             playLoseSound();
