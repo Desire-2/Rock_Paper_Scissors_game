@@ -39,5 +39,5 @@ The images used in the game are located in the Images folder.
 ## Credits
 This game was created by Desire BIKORIMANA. Feel free to contact me at bikorimanadesire@yahoo.com for any questions or feedback.
 
-Enjoy playing the game!
+# Enjoy playing the game!
 
