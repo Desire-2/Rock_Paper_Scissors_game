@@ -1,7 +1,7 @@
 # Rock Paper Scissors Game
 This is a simple Rock Paper Scissors game implemented in HTML, CSS, and JavaScript. The game allows a user to play against the computer and keeps track of the scores until one of the players reaches a score of 5.
 
-##Getting Started
+** Getting Started
 To play the game, open the index.html file in a web browser.
 
 ## How to Play
